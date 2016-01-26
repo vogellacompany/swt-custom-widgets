@@ -21,6 +21,7 @@ public class DatabindingCustomWidgetPart {
 	public void createComposite(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 		Checkbox checkbox = new Checkbox(parent, SWT.NONE);
+		checkbox.setSelection(true);
 		
 		Label label = new Label(parent, SWT.NONE);
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(label);

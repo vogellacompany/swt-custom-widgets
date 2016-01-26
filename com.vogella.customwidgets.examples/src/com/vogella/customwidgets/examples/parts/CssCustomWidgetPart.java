@@ -16,5 +16,6 @@ public class CssCustomWidgetPart {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 		Checkbox checkbox = new Checkbox(parent, SWT.NONE);
 		stylingEngine.setClassname(checkbox, "CheckboxCSS");
+		checkbox.setSelection(true);
 	}
 }

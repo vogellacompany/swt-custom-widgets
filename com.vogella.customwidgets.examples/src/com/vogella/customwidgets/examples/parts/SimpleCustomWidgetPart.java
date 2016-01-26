@@ -14,6 +14,9 @@ public class SimpleCustomWidgetPart {
 	public void createComposite(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 		Checkbox checkbox = new Checkbox(parent, SWT.NONE);
+		checkbox.setSelection(true);
+
+		checkbox.setForeground(parent.getDisplay().getSystemColor(SWT.COLOR_YELLOW));
 		checkbox.setCenterColor(parent.getDisplay().getSystemColor(SWT.COLOR_GRAY));
 		checkbox.setCheckColor(parent.getDisplay().getSystemColor(SWT.COLOR_YELLOW));
 	}
