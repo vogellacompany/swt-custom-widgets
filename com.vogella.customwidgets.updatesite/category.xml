@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/com.vogella.customwidgets.feature_1.0.0.qualifier.jar" id="com.vogella.customwidgets.feature" version="1.0.0.qualifier">
+      <category name="Custom_SWT_Widgets"/>
+   </feature>
+   <category-def name="Custom_SWT_Widgets" label="Custom SWT Widgets">
+      <description>
+         This updatesite contains custom SWT widgets with databinding and CSS styling capabilities.
+      </description>
+   </category-def>
+</site>
