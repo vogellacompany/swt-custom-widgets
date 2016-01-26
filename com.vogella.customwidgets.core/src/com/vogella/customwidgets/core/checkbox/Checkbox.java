@@ -14,8 +14,6 @@ import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.TypedListener;
 
 public class Checkbox extends Canvas {
 	
@@ -72,6 +70,7 @@ public class Checkbox extends Canvas {
 	}
 
 	protected void notifySelectionListener(MouseEvent e) {
+		checkWidget();
 		Object[] listeners = selectionListener.getListeners();
 		for (Object listener : listeners) {
 			Event event = new Event();
@@ -88,14 +87,17 @@ public class Checkbox extends Canvas {
 	
 	@Override
 	public Point computeSize(int wHint, int hHint, boolean changed) {
+		checkWidget();
 		return super.computeSize(26, 26, changed);
 	}
 
 	public boolean getSelection() {
+		checkWidget();
 		return isSelected;
 	}
 
 	public void setSelection(boolean isSelected) {
+		checkWidget();
 		this.isSelected = isSelected;
 	}
 
@@ -116,19 +118,22 @@ public class Checkbox extends Canvas {
 	}
 
 	public Color getCheckColor() {
+		checkWidget();
 		return checkColor;
 	}
 
 	public void setCheckColor(Color checkColor) {
+		checkWidget();
 		this.checkColor = checkColor;
 	}
 
 	public Color getCenterColor() {
+		checkWidget();
 		return centerColor;
 	}
 
 	public void setCenterColor(Color centerColor) {
+		checkWidget();
 		this.centerColor = centerColor;
 	}
-
 }
