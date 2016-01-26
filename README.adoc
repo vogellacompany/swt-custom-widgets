@@ -1,0 +1,12 @@
+= SWT Custom Widgets
+
+This repository provides custom SWT widgets, which can be styled by CSS and supports eclipse databinding.
+
+= Example Project
+
+The _com.vogella.customwidgets.examples_ project contains a _com.vogella.customwidgets.examples.product_, which can be started in order to try the custom widgets.
+
+= Update Site
+
+The _com.vogella.customwidgets.updatesite_ project can be used to create a p2 update site during a maven tycho build.
+In the near future the p2 update site will be available on Bintray.
