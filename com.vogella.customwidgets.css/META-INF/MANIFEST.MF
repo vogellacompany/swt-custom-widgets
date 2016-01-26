@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CSS
+Bundle-SymbolicName: com.vogella.customwidgets.css;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: VOGELLA
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.e4.ui.css.core,
+ org.eclipse.e4.ui.css.swt;bundle-version="0.12.0",
+ org.eclipse.swt;bundle-version="3.105.0",
+ com.vogella.customwidgets.core;bundle-version="1.0.0"

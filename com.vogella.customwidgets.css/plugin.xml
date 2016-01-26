@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.e4.ui.css.core.propertyHandler">
+      <handler
+            adapter="com.vogella.customwidgets.css.CheckColorElementAdapter"
+            composite="true"
+            handler="com.vogella.customwidgets.css.SelectionColorCSSPropertyHandler">
+         <property-name
+               name="check-color">
+         </property-name>
+         <property-name
+               name="center-color">
+         </property-name>
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.e4.ui.css.core.elementProvider">
+      <provider
+            class="com.vogella.customwidgets.css.CustomWidgetProvider">
+         <widget
+               class="com.vogella.customwidgets.core.checkbox.Checkbox"></widget>
+      </provider>
+   </extension>
+
+</plugin>
