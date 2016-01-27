@@ -10,3 +10,6 @@ The _com.vogella.customwidgets.examples_ project contains a _com.vogella.customw
 
 The _com.vogella.customwidgets.updatesite_ project can be used to create a p2 update site during a maven tycho build.
 In the near future the p2 update site will be available on Bintray.
+
+= License
+SWT Custom Widgets is available under the https://www.eclipse.org/legal/epl-v10.html[Eclipse Public License, Version 1.0].
