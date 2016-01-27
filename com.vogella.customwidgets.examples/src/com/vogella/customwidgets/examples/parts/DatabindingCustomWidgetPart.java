@@ -9,6 +9,7 @@ import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
@@ -21,7 +22,9 @@ public class DatabindingCustomWidgetPart {
 	public void createComposite(Composite parent) {
 		GridLayoutFactory.fillDefaults().applyTo(parent);
 		Checkbox checkbox = new Checkbox(parent, SWT.NONE);
+		GridDataFactory.fillDefaults().grab(true, false).applyTo(checkbox);
 		checkbox.setSelection(true);
+		checkbox.setText("Custom checkbox with databinding");
 		
 		Label label = new Label(parent, SWT.NONE);
 		GridDataFactory.fillDefaults().grab(true, false).applyTo(label);
@@ -32,5 +35,9 @@ public class DatabindingCustomWidgetPart {
 		ISWTObservableValue labelProperty = WidgetProperties.text().observe(label);
 		
 		dbc.bindValue(labelProperty, checkboxProperty);
+		
+		Button checkButton = new Button(parent, SWT.CHECK);
+		checkButton.setSelection(true);
+		checkButton.setText("Usual SWT check button");
 	}
 }
