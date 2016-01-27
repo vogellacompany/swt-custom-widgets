@@ -16,10 +16,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Event;
 
 public class Checkbox extends Canvas {
-	
+
 	private ListenerList selectionListener = new ListenerList();
 
 	private boolean isSelected;
+
+	private String text;
+
+	private Point textExtent;
 
 	private Color checkColor;
 
@@ -33,11 +37,13 @@ public class Checkbox extends Canvas {
 	private void addListeners() {
 		addPaintListener(new PaintListener() {
 
+
 			@Override
 			public void paintControl(PaintEvent e) {
 				GC gc = e.gc;
 
-				gc.setBackground(getCenterColor() != null ? getCenterColor() : getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
+				gc.setBackground(getCenterColor() != null ? getCenterColor()
+						: getDisplay().getSystemColor(SWT.COLOR_WIDGET_BACKGROUND));
 				gc.setForeground(getForeground());
 				gc.fillRoundRectangle(4, 4, 16, 16, 6, 6);
 
@@ -45,13 +51,19 @@ public class Checkbox extends Canvas {
 
 				if (getSelection()) {
 					gc.setLineWidth(4);
-					gc.setForeground(
-							getCheckColor() != null ? getCheckColor() : getDisplay().getSystemColor(SWT.COLOR_WIDGET_FOREGROUND));
+					gc.setForeground(getCheckColor() != null ? getCheckColor()
+							: getDisplay().getSystemColor(SWT.COLOR_WIDGET_FOREGROUND));
 
-					gc.drawLine(6, 7, 13, 14);
+					gc.drawLine(6, 7, 13, 16);
 
-					gc.drawLine(11, 14, 21, 0);
+					gc.drawLine(11, 16, 21, 0);
 				}
+				
+				textExtent = gc.textExtent(text);
+
+				gc.setForeground(getForeground());
+				gc.setBackground(getBackground());
+				gc.drawText(text, 24, 4);
 			}
 		});
 
@@ -62,7 +74,7 @@ public class Checkbox extends Canvas {
 				setSelection(!getSelection());
 
 				notifySelectionListener(e);
-				
+
 				redraw();
 			}
 
@@ -84,11 +96,12 @@ public class Checkbox extends Canvas {
 			((SelectionListener) listener).widgetSelected(selectionEvent);
 		}
 	}
-	
+
 	@Override
 	public Point computeSize(int wHint, int hHint, boolean changed) {
 		checkWidget();
-		return super.computeSize(26, 26, changed);
+		int textWidth = textExtent != null ? textExtent.x : 0;
+		return super.computeSize(Math.max(26 + textWidth, wHint), Math.max(26, hHint), changed);
 	}
 
 	public boolean getSelection() {
@@ -101,6 +114,27 @@ public class Checkbox extends Canvas {
 		this.isSelected = isSelected;
 	}
 
+	public void setText(String string) {
+		checkWidget();
+		if (string == null) {
+			SWT.error(SWT.ERROR_NULL_ARGUMENT);
+		}
+		if ((getStyle() & SWT.ARROW) != 0) {
+			return;
+		}
+		text = string;
+
+		redraw();
+	}
+
+	public String getText() {
+		checkWidget();
+		if ((getStyle() & SWT.ARROW) != 0) {
+			return "";
+		}
+		return text;
+	}
+
 	public void addSelectionListener(SelectionListener listener) {
 		checkWidget();
 		if (null == listener) {
@@ -108,8 +142,8 @@ public class Checkbox extends Canvas {
 		}
 		selectionListener.add(listener);
 	}
-	
-	public void removeSelectionListener (SelectionListener listener) {
+
+	public void removeSelectionListener(SelectionListener listener) {
 		checkWidget();
 		if (null == listener) {
 			SWT.error(SWT.ERROR_NULL_ARGUMENT);
