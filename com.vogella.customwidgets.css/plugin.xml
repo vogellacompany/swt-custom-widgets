@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.e4.ui.css.core.propertyHandler">
       <handler
-            adapter="com.vogella.customwidgets.css.CheckColorElementAdapter"
+            adapter="org.eclipse.e4.ui.css.swt.dom.CompositeElement"
             composite="true"
             handler="com.vogella.customwidgets.css.SelectionColorCSSPropertyHandler">
          <property-name
@@ -14,14 +14,6 @@
                name="center-color">
          </property-name>
       </handler>
-   </extension>
-   <extension
-         point="org.eclipse.e4.ui.css.core.elementProvider">
-      <provider
-            class="com.vogella.customwidgets.css.CustomWidgetProvider">
-         <widget
-               class="com.vogella.customwidgets.core.checkbox.Checkbox"></widget>
-      </provider>
    </extension>
 
 </plugin>

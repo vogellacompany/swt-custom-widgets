@@ -9,6 +9,9 @@
             <children xsi:type="basic:Part" xmi:id="_7jQSkMRhEeWtCOkTy41gDA" elementId="com.vogella.customwidgets.examples.part.sample" contributionURI="bundleclass://com.vogella.customwidgets.examples/com.vogella.customwidgets.examples.parts.CssCustomWidgetPart" label="Css Custom Widget"/>
             <children xsi:type="basic:Part" xmi:id="_7atakMRhEeWtCOkTy41gDA" elementId="com.vogella.customwidgets.examples.part.sample" contributionURI="bundleclass://com.vogella.customwidgets.examples/com.vogella.customwidgets.examples.parts.DatabindingCustomWidgetPart" label="Databinding Custom Widget"/>
           </children>
+          <children xsi:type="basic:PartStack" xmi:id="_wwbkUAfFEeeG0_an0L6JWg" elementId="com.vogella.customwidgets.examples.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_xzQTQAfFEeeG0_an0L6JWg" elementId="com.vogella.customwidgets.examples.part.firsttristate" contributionURI="bundleclass://com.vogella.customwidgets.examples/com.vogella.customwidgets.examples.parts.FirstTriStatePart" label="First TriState"/>
+          </children>
         </children>
       </children>
     </children>
